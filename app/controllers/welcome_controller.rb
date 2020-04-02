@@ -3,13 +3,19 @@ class WelcomeController < ApplicationController
   # this show page will have links to the other index pages
   # but will function as the primart page for viewing informaiton in a table
   # based format. with clickable links to show pages for more information
+
   def show
-    @units = Lease.select('unit_id').distinct
-    #get the units that only have leases within these 6 months. Example
-    # a lease that had activity within the past 6 months will show up
-    # a lease that ended 7 months ago will not show up
-    # a lease that ended 6 months ago will show up
-    # a lease that ended 5 months ago will show up
+    @units = Lease.select('unit_id', 'lease_end', 'lease_start')
+    @not_nil_units = []
+    @new_units = []
+    @units.each do |unit|
+      if unit.lease_end != nil && unit.lease_start != nil
+        @not_nil_units << unit
+        if unit.lease_end > 6.months.ago
+          @new_units << unit
+        end
+      end
+    end
 
     six = 6.months.ago.month
     @six_months_ago = I18n.t("date.month_names")[six]
