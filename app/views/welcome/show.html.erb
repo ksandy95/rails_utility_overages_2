@@ -1,3 +1,24 @@
 <%= link_to 'Reservations', "/reservations" %>
 <%= link_to 'Leases', "/leases" %>
 <%= link_to 'Expenses', "/expenses" %>
+
+
+<h1>Table Will Go Under Here</h1>
+<table>
+  <tr>
+    <th>Unit ID #</th>
+    <th><%= @six_months_ago %></th>
+    <th><%= @five_months_ago %></th>
+    <th><%= @four_months_ago %></th>
+    <th><%= @three_months_ago %></th>
+    <th><%= @two_months_ago %></th>
+    <th><%= @one_month_ago %></th>
+  </tr>
+  <% @units.each do |unit| %>
+    <tr>
+      <td><%= unit.unit_id %></td>
+    </tr>
+  <% end %>
+
+
+</table>
