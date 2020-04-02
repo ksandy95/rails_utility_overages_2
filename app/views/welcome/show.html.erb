@@ -7,6 +7,8 @@
 <table>
   <tr>
     <th>Unit ID #</th>
+    <th>Lease Start Date</th>
+    <th>Lease End Date</th>
     <th><%= @six_months_ago %></th>
     <th><%= @five_months_ago %></th>
     <th><%= @four_months_ago %></th>
@@ -14,9 +16,11 @@
     <th><%= @two_months_ago %></th>
     <th><%= @one_month_ago %></th>
   </tr>
-  <% @units.each do |unit| %>
+  <% @new_units.each do |unit| %>
     <tr>
       <td><%= unit.unit_id %></td>
+      <td><%= unit.lease_start%></td>
+      <td><%= unit.lease_end%></td>
     </tr>
   <% end %>
 
