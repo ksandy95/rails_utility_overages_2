@@ -6,17 +6,18 @@ class WelcomeController < ApplicationController
 
   def show
     @units = Lease.select('unit_id', 'lease_end', 'lease_start')
-    @not_nil_units = []
     @new_units = []
+    @expenses = {}
     @units.each do |unit|
-      if unit.lease_end != nil && unit.lease_start != nil
-        @not_nil_units << unit
+      if unit.lease_end != nil
         if unit.lease_end > 6.months.ago
           @new_units << unit
+          @expenses[unit.unit_id] = Expense.select('net', 'period_posted', 'unit_id').where(unit_id: unit.unit_id)
         end
       end
     end
-
+    # expenses are a hash based on unit number. They need to also be grouped by the payment posted string. 
+    binding.pry
     six = 6.months.ago.month
     @six_months_ago = I18n.t("date.month_names")[six]
 
