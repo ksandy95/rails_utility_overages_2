@@ -8,6 +8,8 @@ class WelcomeController < ApplicationController
     @units = Lease.select('unit_id', 'lease_end', 'lease_start')
     @new_units = []
     @expenses = {}
+    @array_of_last_6_months = [6.months.ago.month.to_s, 5.months.ago.month.to_s, 4.months.ago.month.to_s, 3.months.ago.month.to_s, 2.months.ago.month.to_s, 1.months.ago.month.to_s]
+
 
     @units.each do |unit|
       if unit.lease_end != nil && unit.lease_start != nil
@@ -15,6 +17,8 @@ class WelcomeController < ApplicationController
           @new_units << unit
 
           unit_expenses = Expense.select('net', 'period_posted', 'unit_id').where(unit_id: unit.unit_id)
+          # i only want the expenses from year 2019 and 2020. the above gives me all unit expenses from all years.
+
 
           @expenses[unit.unit_id] = ["01" => [], "02" => [], "03" => [], "04" => [], "05" => [], "06" => [], "07" => [], "08" => [], "09" => [], "10" => [], "11" => [], "12" => [], "different" => []]
 
@@ -65,7 +69,6 @@ class WelcomeController < ApplicationController
 
     end
     # end of the @units.each do
-    array_of_last_6_months = [6.months.ago.month.to_s, 5.months.ago.month.to_s, 4.months.ago.month.to_s, 3.months.ago.month.to_s, 2.months.ago.month.to_s, 1.months.ago.month.to_s]
 
     @six_months_ago = I18n.t("date.month_names")[6.months.ago.month]
     @five_months_ago = I18n.t("date.month_names")[5.months.ago.month]
