@@ -50,25 +50,29 @@ class WelcomeController < ApplicationController
               else
                 @expenses[unit.unit_id][0]["different"] << unit_expense
               end
+              # end of the month_posted if
+
             end
+            # end of the unit_expense if
+
           end
+          # end of the array do
+
         end
+        # end of the unit.lease_end 6 months if
+
       end
+      # end of the unit.lease_end / lease_start nil if
+
     end
+    # end of the @units.each do
+    
     @six_months_ago = I18n.t("date.month_names")[6.months.ago.month]
-
     @five_months_ago = I18n.t("date.month_names")[5.months.ago.month]
-
     @four_months_ago = I18n.t("date.month_names")[4.months.ago.month]
-
-    three = 3.months.ago.month
-    @three_months_ago = I18n.t("date.month_names")[three]
-
-    two = 2.months.ago.month
-    @two_months_ago = I18n.t("date.month_names")[two]
-
-    one = 1.months.ago.month
-    @one_month_ago = I18n.t("date.month_names")[one]
+    @three_months_ago = I18n.t("date.month_names")[3.months.ago.month]
+    @two_months_ago = I18n.t("date.month_names")[2.months.ago.month]
+    @one_month_ago = I18n.t("date.month_names")[1.months.ago.month]
   end
   # above is the end of the show method
 
