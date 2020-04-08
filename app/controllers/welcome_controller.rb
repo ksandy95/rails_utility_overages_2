@@ -14,11 +14,11 @@ class WelcomeController < ApplicationController
         if unit.lease_end > 6.months.ago
           @new_units << unit
 
-          array = Expense.select('net', 'period_posted', 'unit_id').where(unit_id: unit.unit_id)
+          unit_expenses = Expense.select('net', 'period_posted', 'unit_id').where(unit_id: unit.unit_id)
 
           @expenses[unit.unit_id] = ["01" => [], "02" => [], "03" => [], "04" => [], "05" => [], "06" => [], "07" => [], "08" => [], "09" => [], "10" => [], "11" => [], "12" => [], "different" => []]
 
-          array.map do |unit_expense|
+          unit_expenses.map do |unit_expense|
             if unit_expense != nil
               month_posted = unit_expense.period_posted.split('.')[1]
 
@@ -55,7 +55,7 @@ class WelcomeController < ApplicationController
             # end of the unit_expense if
 
           end
-          # end of the array do
+          # end of the unit_expenses do
 
         end
         # end of the unit.lease_end 6 months if
