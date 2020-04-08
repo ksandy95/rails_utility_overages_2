@@ -73,27 +73,3 @@ class WelcomeController < ApplicationController
   # above is the end of the show method
 
 end
-
-# binding.pry
-# @expenses = {123{"01"{unit_expenses}, "02"{unit_expenses}}, 456{"01"{unit_expenses}, "02"{unit_expenses}, "03"{unit_expenses}}}
-#   @expenses = {}
-#   @expenses[89413] => ["Jan", "Feb"]
-#   @expenses[89413]["01"] => [<Expense:0x007faac10d8770 id: nil, period_posted: "2020.01", net: 47.5, unit_id: 89413>,]
-#   here
-#           binding.pry
-
-# @expenses[unit.unit_id] = ["01", "02"]
-# x = Expense.select('net', 'period_posted', 'unit_id').where(unit_id: unit.unit_id)
-# x.each do |unit_expense|
-  # month_posted = unit_expense.period_posted.split('.')[1]
-  # @expenses[unit.unit_id][02] = {}
-  # if month_posted = "02"
-    # @expenses[unit.unit_id][02] << unit_expense
-    # feb unit_expense
-  # end
-# end
-# @expenses[unit.unit_id]["#{period_posted}"]
-
-# {88495 = {"2020.02" = [net: 59.77] }, {"2020.03" = []}}
-# binding.pry
-# array.group_by {|x| x['']}
