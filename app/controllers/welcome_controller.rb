@@ -65,6 +65,7 @@ class WelcomeController < ApplicationController
 
     end
     # end of the @units.each do
+    array_of_last_6_months = [6.months.ago.month.to_s, 5.months.ago.month.to_s, 4.months.ago.month.to_s, 3.months.ago.month.to_s, 2.months.ago.month.to_s, 1.months.ago.month.to_s]
 
     @six_months_ago = I18n.t("date.month_names")[6.months.ago.month]
     @five_months_ago = I18n.t("date.month_names")[5.months.ago.month]
