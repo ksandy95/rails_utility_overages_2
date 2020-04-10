@@ -1,34 +1,44 @@
-<%= link_to 'Reservations', "/reservations" %>
-<%= link_to 'Leases', "/leases" %>
-<%= link_to 'Expenses', "/expenses" %>
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home page table</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+
+    <%= link_to 'Reservations', "/reservations" %>
+    <%= link_to 'Leases', "/leases" %>
+    <%= link_to 'Expenses', "/expenses" %>
+
+    <table>
+      <tr>
+        <th>Unit ID #</th>
+        <th>Lease Start Date</th>
+        <th>Lease End Date</th>
+        <th><%= @six_months_ago %></th>
+        <th><%= @five_months_ago %></th>
+        <th><%= @four_months_ago %></th>
+        <th><%= @three_months_ago %></th>
+        <th><%= @two_months_ago %></th>
+        <th><%= @one_month_ago %></th>
+      </tr>
+      <% @new_units.each do |unit| %>
+        <tr>
+          <td><%= unit.unit_id %></td>
+          <td><%= unit.lease_start%></td>
+          <td><%= unit.lease_end%></td>
+          <td><%= rand(0..100.00).round(2)%></td>
+          <td><%= rand(0..100.00).round(2)%></td>
+          <td><%= rand(0..100.00).round(2)%></td>
+          <td><%= rand(0..100.00).round(2)%></td>
+          <td><%= rand(0..100.00).round(2)%></td>
+          <td><%= rand(0..100.00).round(2)%></td>
+        </tr>
+      <% end %>
 
 
-<h1>Table Will Go Under Here</h1>
-<table>
-  <tr>
-    <th>Unit ID #</th>
-    <th>Lease Start Date</th>
-    <th>Lease End Date</th>
-    <th><%= @six_months_ago %></th>
-    <th><%= @five_months_ago %></th>
-    <th><%= @four_months_ago %></th>
-    <th><%= @three_months_ago %></th>
-    <th><%= @two_months_ago %></th>
-    <th><%= @one_month_ago %></th>
-  </tr>
-  <% @new_units.each do |unit| %>
-    <tr>
-      <td><%= unit.unit_id %></td>
-      <td><%= unit.lease_start%></td>
-      <td><%= unit.lease_end%></td>
-      <td><%= rand(0..100.00).round(2)%></td>
-      <td><%= rand(0..100.00).round(2)%></td>
-      <td><%= rand(0..100.00).round(2)%></td>
-      <td><%= rand(0..100.00).round(2)%></td>
-      <td><%= rand(0..100.00).round(2)%></td>
-      <td><%= rand(0..100.00).round(2)%></td>
-    </tr>
-  <% end %>
+    </table>
 
-
-</table>
+  </body>
+</html>
