@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_220545) do
+ActiveRecord::Schema.define(version: 2020_04_10_195152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(version: 2020_03_30_220545) do
     t.string "bedrooms"
     t.string "unit_classification"
     t.boolean "third_party_unit"
+    t.float "expenses_six_months_ago"
+    t.float "expenses_five_months_ago"
+    t.float "expenses_four_months_ago"
+    t.float "expenses_three_months_ago"
+    t.float "expenses_two_months_ago"
+    t.float "expenses_one_months_ago"
   end
 
   create_table "reservations", force: :cascade do |t|
