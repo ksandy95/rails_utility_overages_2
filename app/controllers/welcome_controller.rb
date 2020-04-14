@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
   # based format. with clickable links to show pages for more information
 
   def show
-    @units = Lease.select('unit_id', 'lease_end', 'lease_start')
+    @units = Lease.select('unit_id', 'lease_end', 'lease_start').limit(2000)
     @new_units = []
     @expenses = {}
     @array_of_last_6_months = [6.months.ago.month.to_s, 5.months.ago.month.to_s, 4.months.ago.month.to_s, 3.months.ago.month.to_s, 2.months.ago.month.to_s, 1.months.ago.month.to_s]
