@@ -159,10 +159,10 @@
     </header>
 
     <div class="sidenav">
-      <a href="">Home</a>
-      <a href="">Leases</a>
-      <a href="">Expenses</a>
-      <a href="">Overage Tracker</a>
+      <a href="home">Home</a>
+      <a href="leases">Leases</a>
+      <a href="expenses">Expenses</a>
+      <a href="tracker">Overage Tracker</a>
     </div>
 
     <p>NOTICE: This unit has had <%= rand(0..4)%> expense overage(s) in the past 6 months.</p>
@@ -215,9 +215,18 @@
         <tr>
           <th>Expense Amount</th>
           <th>Vendor</th>
+          <th>Account Name</th>
         </tr>
+        <% @last_month_expenses.each do |expense| %>
         <tr>
-
+          <td><%= expense.net %></td>
+          <td><%= expense.vendor_id %></td>
+          <td><%= expense.account_name %></td>
+        </tr>
+        <% end %>
+        <tr>
+          <th>Sum:</th>
+          <td><%= @last_month_expense_sum %></td>
         </tr>
 
       </table>
