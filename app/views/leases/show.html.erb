@@ -1,4 +1,63 @@
 <!DOCTYPE html>
+<style media="screen">
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  body {
+    background-color: #D3DCE2;
+    font-family: proxima nova,Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: #4C4C4C;
+    width: auto;
+  }
+
+  header {
+    width: 100%;
+    height: 150px;
+    background-color: #54748C;
+  }
+
+  header img {
+    height: 150px;
+    float: left;
+  }
+
+  header h2 {
+    color: white;
+    float: left;
+    margin-left: 40px;
+    margin-top: 50px;
+    font-size: 35px;
+  }
+
+  table {
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 25px;
+  }
+
+  td, th{
+    padding: 15px;
+  }
+
+  .lease-unit-box {
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+
+
+
+</style>
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -6,8 +65,30 @@
   </head>
 
   <body>
-    <h1>Unit ID #<%= @lease.first.unit_id %></h1>
-    <p>Information about this lease / unit.</p>
+    <header>
+      <img src="https://www.itm.org.uk/imagedata/organisationlogo/300X300/2907%20.jpg?Type=BYENTITYID" alt="">
+      <h2>Unit and Lease Information</h2>
+    </header>
+
+    <div class="lease-unit-box">
+      <table>
+        <tr>
+          <th>Unit Id #:</th>
+          <td><%= @lease.first.unit_id%></td>
+        </tr>
+        <tr>
+          <th>Telephone:</th>
+          <td>555 77 854</td>
+        </tr>
+        <tr>
+          <th>Telephone:</th>
+          <td>555 77 855</td>
+        </tr>
+      </table>
+
+    </div>
+
+
   </body>
 
 </html>
