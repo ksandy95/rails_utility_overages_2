@@ -48,7 +48,8 @@
     color: #f85323;
     float: right;
     margin-right: 20px;
-    margin-top: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
   }
 
   .sidenav {
@@ -81,11 +82,24 @@
     border-radius: 25px;
   }
 
-  .expense-info-table {
+  .expense-info-table-last {
     float: left;
     border-collapse: collapse;
     background-color: white;
     border-radius: 25px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  .expense-info-table-current {
+    float: left;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 25px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
   }
 
   td, th{
@@ -93,14 +107,19 @@
   }
 
   .lease-unit-box {
+    width: 30;
+    float: left;
     margin-top: 30px;
     margin-left: 30px;
+    position: relative;
   }
 
   .expense-reservation-box {
-    float: right;
-    margin-right: 30px;
-    border: 2px solid black;
+    float: left;
+    margin-right: 10px;
+    margin-left: 20px;
+    border: 2px solid #4C4C4C;
+    border-radius: 25%;
     width: 60%;
   }
 
@@ -191,11 +210,23 @@
     </div>
 
     <div class="expense-reservation-box">
-      <table class="expense-info-table">
-        <caption>Expenses</caption>
+      <table class="expense-info-table-last">
+        <caption>Expenses Last Month</caption>
         <tr>
-          <th>Last Month</th>
-          <th>Current Month</th>
+          <th>Expense Amount</th>
+          <th>Vendor</th>
+        </tr>
+        <tr>
+
+        </tr>
+
+      </table>
+
+      <table class="expense-info-table-current">
+        <caption>Expenses Current Month</caption>
+        <tr>
+          <th>Expense Amount</th>
+          <th>Vendor</th>
         </tr>
 
       </table>
