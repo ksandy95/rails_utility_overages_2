@@ -4,4 +4,10 @@ class LeasesController < ApplicationController
 
   end
 
+  def show
+    # binding.pry
+    @lease = Lease.where(unit_id: params[:id])
+    # binding.pry
+  end
+
 end
