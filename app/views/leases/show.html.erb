@@ -161,15 +161,15 @@
         </tr>
         <tr>
           <th>Bedroom Type:</th>
-          <td>@address[:city]</td>
+          <td><%= @lease.first.unit_id%></td>
         </tr>
         <tr>
           <th>Lease Start:</th>
-          <td>@address[:city]</td>
+          <td><%= @lease.first.lease_start%></td>
         </tr>
         <tr>
           <th>Lease End:</th>
-          <td>@address[:city]</td>
+          <td><%= @lease.first.lease_end != nil ?  @lease.first.lease_end :  @lease.first.lease_start.next_year(1) %></td>
         </tr>
       </table>
 
