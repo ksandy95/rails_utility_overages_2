@@ -74,8 +74,15 @@
     color: #f85323;
   }
 
-  table {
+  .unit-info-table {
     margin-left: 150px;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 25px;
+  }
+
+  .expense-info-table {
+    float: left;
     border-collapse: collapse;
     background-color: white;
     border-radius: 25px;
@@ -88,6 +95,13 @@
   .lease-unit-box {
     margin-top: 30px;
     margin-left: 30px;
+  }
+
+  .expense-reservation-box {
+    float: right;
+    margin-right: 30px;
+    border: 2px solid black;
+    width: 60%;
   }
 
   footer {
@@ -133,8 +147,9 @@
     </div>
 
     <p>NOTICE: This unit has had <%= rand(0..4)%> expense overage(s) in the past 6 months.</p>
+
     <div class="lease-unit-box">
-      <table>
+      <table class="unit-info-table">
         <tr>
           <th>Unit Id #:</th>
           <td><%= @lease.first.unit_id%></td>
@@ -145,23 +160,23 @@
         </tr>
         <tr>
           <th>Address:</th>
-          <td>@address[:city]</td>
+          <td>@address.address</td>
         </tr>
         <tr>
           <th>City:</th>
-          <td>@address[:city]</td>
+          <td>@address.city</td>
         </tr>
         <tr>
           <th>State:</th>
-          <td>@address[:city]</td>
+          <td>@address.state</td>
         </tr>
         <tr>
           <th>Zip Code:</th>
-          <td>@address[:city]</td>
+          <td>@address.zip</td>
         </tr>
         <tr>
           <th>Bedroom Type:</th>
-          <td><%= @lease.first.unit_id%></td>
+          <td><%= @lease.first.bedrooms%></td>
         </tr>
         <tr>
           <th>Lease Start:</th>
@@ -171,6 +186,18 @@
           <th>Lease End:</th>
           <td><%= @lease.first.lease_end != nil ?  @lease.first.lease_end :  @lease.first.lease_start.next_year(1) %></td>
         </tr>
+      </table>
+
+    </div>
+
+    <div class="expense-reservation-box">
+      <table class="expense-info-table">
+        <caption>Expenses</caption>
+        <tr>
+          <th>Last Month</th>
+          <th>Current Month</th>
+        </tr>
+
       </table>
 
     </div>
