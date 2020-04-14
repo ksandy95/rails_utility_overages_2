@@ -199,7 +199,7 @@
         </tr>
         <tr>
           <th>Lease Start:</th>
-          <td><%= @lease.first.lease_start%></td>
+          <td><%= @lease.first.lease_start != nil ?  @lease.first.lease_start :  @lease.first.lease_end - 365 %></td>
         </tr>
         <tr>
           <th>Lease End:</th>
@@ -225,10 +225,15 @@
         </tr>
         <% end %>
         <tr>
-          <th>Sum:</th>
+          <th>Expense Total: </th>
           <td><%= @last_month_expense_sum %></td>
         </tr>
-
+        <tr>
+          <th>Reservations: </th>
+          <% @last_month_reservations. each do |reservation|%>
+            <td><%= reservation %></td>
+          <% end %>
+        </tr>
       </table>
 
       <table class="expense-info-table-current">
@@ -236,8 +241,25 @@
         <tr>
           <th>Expense Amount</th>
           <th>Vendor</th>
+          <th>Account Name</th>
         </tr>
-
+        <% @current_month_expenses.each do |expense| %>
+        <tr>
+          <td><%= expense.net %></td>
+          <td><%= expense.vendor_id %></td>
+          <td><%= expense.account_name %></td>
+        </tr>
+        <% end %>
+        <tr>
+          <th>Expense Total: </th>
+          <td><%= @current_month_expense_sum %></td>
+        </tr>
+        <tr>
+          <th>Reservations: </th>
+          <% @current_month_reservations. each do |reservation|%>
+            <td><%= reservation %></td>
+          <% end %>
+        </tr>
       </table>
 
     </div>
