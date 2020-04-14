@@ -31,6 +31,11 @@
     float: left;
   }
 
+  .unit-header-image {
+    height:150px;
+    float: right;
+  }
+
   header h2 {
     color: white;
     float: left;
@@ -39,7 +44,38 @@
     font-size: 35px;
   }
 
+  p {
+    color: #f85323;
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+
+  .sidenav {
+    margin-top: 150px;
+    height: 80%;
+    width: 150px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #4C4C4C;
+    padding-top: 20px;
+  }
+
+  .sidenav a {
+    padding: 7px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #a0b4c0;
+    display: block;
+  }
+
+  .sidenav a:hover {
+    color: #f85323;
+  }
+
   table {
+    margin-left: 150px;
     border-collapse: collapse;
     background-color: white;
     border-radius: 25px;
@@ -54,7 +90,21 @@
     margin-left: 30px;
   }
 
+  footer {
+    height: 50px;
+    width: 100%;
+    color: white;
+    background-color: #54748C;
+    position: absolute;
+    bottom: 0;
+  }
 
+  footer p {
+    float: right;
+    font-size: 10px;
+    margin-right: 30px;
+    margin-top: 20px;
+  }
 
 </style>
 
@@ -68,8 +118,21 @@
     <header>
       <img src="https://www.itm.org.uk/imagedata/organisationlogo/300X300/2907%20.jpg?Type=BYENTITYID" alt="">
       <h2>Unit and Lease Information</h2>
+      <div class="unit-header-image">
+        <img src="https://www.nationalcorporatehousing.com/sites/default/files/styles/extra_large/public/slideshow/dsc_7906.jpg?itok=x4jZn7CT" alt="">
+        <img src="https://www.nationalcorporatehousing.com/sites/default/files/styles/extra_large/public/slideshow/dsc_7950.jpg?itok=QO7Mq1Aa" alt="">
+        <img src="https://www.nationalcorporatehousing.com/sites/default/files/styles/extra_large/public/slideshow/dsc_8013.jpg?itok=mragDsX-" alt="">
+      </div>
     </header>
 
+    <div class="sidenav">
+      <a href="">Home</a>
+      <a href="">Leases</a>
+      <a href="">Expenses</a>
+      <a href="">Overage Tracker</a>
+    </div>
+
+    <p>NOTICE: This unit has had <%= rand(0..4)%> expense overage(s) in the past 6 months.</p>
     <div class="lease-unit-box">
       <table>
         <tr>
@@ -78,15 +141,43 @@
         </tr>
         <tr>
           <th>Telephone:</th>
-          <td>555 77 854</td>
+          <td>(555) 776-854</td>
         </tr>
         <tr>
-          <th>Telephone:</th>
-          <td>555 77 855</td>
+          <th>Address:</th>
+          <td>@address[:city]</td>
+        </tr>
+        <tr>
+          <th>City:</th>
+          <td>@address[:city]</td>
+        </tr>
+        <tr>
+          <th>State:</th>
+          <td>@address[:city]</td>
+        </tr>
+        <tr>
+          <th>Zip Code:</th>
+          <td>@address[:city]</td>
+        </tr>
+        <tr>
+          <th>Bedroom Type:</th>
+          <td>@address[:city]</td>
+        </tr>
+        <tr>
+          <th>Lease Start:</th>
+          <td>@address[:city]</td>
+        </tr>
+        <tr>
+          <th>Lease End:</th>
+          <td>@address[:city]</td>
         </tr>
       </table>
 
     </div>
+
+    <footer>
+      <p>This Page Brought To You By Nicholas and Kelly</p>
+    </footer>
 
 
   </body>
