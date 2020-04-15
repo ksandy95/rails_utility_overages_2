@@ -242,7 +242,7 @@
         <tr>
           <th>Reservations: </th>
           <% @last_month_reservations. each do |reservation|%>
-            <td><%= reservation %> <%= %>   <button class="button">Bill For Overage</button></td>
+          <td><b><%=reservation %></b>: <button class="button">Bill For Overage</button></td>
           <% end %>
         </tr>
       </table>
@@ -270,7 +270,7 @@
         <tr>
           <th>Reservations: </th>
           <% @current_month_reservations. each do |reservation|%>
-            <td><%= reservation %>  <button class="button" onclick="myFunction()">Bill For Overage</button></td>
+            <td><b><%=reservation %></b>: <button class="button">Bill For Overage</button></td>
           <% end %>
         </tr>
       </table>

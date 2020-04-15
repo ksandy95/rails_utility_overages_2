@@ -6,17 +6,6 @@ class LeasesController < ApplicationController
 
   def show
     @lease = Lease.where(unit_id: params[:id])
-  #   FactoryGirl.define do
-  #   factory :address do
-  #     city           { Faker::Address.city }
-  #     street_address { Faker::Address.street_address }
-  #     unit           { Faker::Address.secondary_address }
-  #     zip            { Faker::Address.zip }
-  #     state          { Faker::Address.state }
-  #   end
-  # end
-    # @address = {city: Faker::Address.city, street_name: Faker::Address.street_name, street_address: Faker::Address.street_address, unit: Faker::Address.secondary_address, zip: Faker::Address.zip, state: Faker::Address.state}
-    # @fake_address = FactoryGirl.build(:destination)
 
     expenses = Expense.first(6)
     @last_month_expenses = [expenses[0], expenses[1], expenses[2]]
