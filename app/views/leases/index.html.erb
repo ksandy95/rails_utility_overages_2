@@ -1,1 +1,119 @@
-<h1>Leases Index</h1>
+<!DOCTYPE html>
+<style media="screen">
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  body {
+    background-color: #D3DCE2;
+    font-family: proxima nova,Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: #4C4C4C;
+    width: 1140px;
+  }
+
+  .table-box {
+    width: 83%;
+    float:left;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  table {
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 25px;
+  }
+
+  td, th{
+    padding: 15px;
+  }
+
+  tr:hover {background-color:#f5f5f5;}
+
+  header {
+    display: flex;
+  }
+
+  header img {
+    margin-left:20px;
+    margin-right:10px;
+    display: block;
+  }
+
+  header p {
+    margin: 0px;
+    padding-top: 10px;
+    font-size: 30px;
+    color: #4C4C4C;
+    font-family: sans-serif, fantasy;
+  }
+
+  .side-bar {
+    width: 15%;
+    float: left;
+  }
+
+  .side-bar img {
+    width: 400px;
+    padding: 10px;
+    border-radius: 25%;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+
+</style>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lease page table</title>
+  </head>
+  <body>
+    <header>
+      <img src="https://www.nationalcorporatehousing.com/sites/default/files/nationalcorporatehousing_logo.png" alt="This image could not be loaded.">
+      <p>Lease Information</p>
+    </header>
+    <div class="table-box">
+      <table>
+        <br>
+        <tr>
+          <th>Unit ID #</th>
+          <th>Lease Start Date</th>
+          <th>Lease End Date</th>
+          <th>Bedrooms</th>
+          <th>Unit Classification</th>
+          <th>Third Party Unit</th>
+        </tr>
+        <% @leases.each do |lease| %>
+          <tr>
+            <td><b><%= link_to "#{unit.unit_id}", "/leases/#{unit.unit_id}", {:style=>'color:#456175; text-decoration: none;'} %></b></td>
+            <td><%= lease.lease_start%></td>
+            <td><%= lease.lease_end%></td>
+            <td><%= lease.bedrooms%></td>
+            <td><%= lease.unit_classification%></td>
+            <td><%= lease.third_party_unit%></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+
+    <div class="side-bar">
+      <img src="https://www.nationalcorporatehousing.com/sites/default/files/styles/480x480/public/cities/istock_000068345923_large.jpg?itok=Ym-_ZHxN" alt="Charlotte Image">
+      <img src="https://www.nationalcorporatehousing.com/sites/default/files/styles/480x480/public/cities/gettyimages-1047502134_london.jpg?itok=naZHhOwW" alt="London Image">
+      <img src="https://www.nationalcorporatehousing.com/sites/default/files/styles/480x480/public/cities/ny_ny.jpg?itok=-Yx3CUV-" alt="New York Image">
+      <img src="https://www.nationalcorporatehousing.com/sites/default/files/styles/480x480/public/cities/houston_tx_2.jpg?itok=xMB-lKcf" alt="Houston Image">
+      <img src="https://www.nationalcorporatehousing.com/sites/default/files/styles/480x480/public/cities/istock-473207592.jpg?itok=By6eV5eP" alt="Arlington Image">
+      <img src="https://www.nationalcorporatehousing.com/sites/default/files/styles/480x480/public/cities/seattle_wa_3.jpg?itok=letY1D49" alt="Seattle Image">
+    </div>
+
+  </body>
+</html>
