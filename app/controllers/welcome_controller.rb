@@ -14,67 +14,8 @@ class WelcomeController < ApplicationController
       if unit.lease_end != nil && unit.lease_start != nil
         if unit.lease_end > 6.months.ago
           @new_units << unit
-
-          # i only want the expenses from year 2019 and 2020. the above gives me all unit expenses from all years.
-          # what i really want are only expenses from the past 6 months
-
-          # @expenses[unit.unit_id] = ["01" => [], "02" => [], "03" => [], "04" => [], "05" => [], "06" => [], "07" => [], "08" => [], "09" => [], "10" => [], "11" => [], "12" => [], "different" => []]
-          # can i change the values from 01..12 to only the array_of_last_6_months[0], array_of_last_6_months[1], etc...?
-
-          # unit_expenses.map do |unit_expense|
-            # if unit_expense != nil
-              # month_posted = unit_expense.period_posted.split('.')[1]
-              # six = 6.months.ago.month
-              # five = 5.months.ago.month
-              # four = 4.months.ago.month
-              # three = 3.months.ago.month
-              # two = 2.months.ago.month
-              # one = 1.months.ago.month
-
-              # if month_posted == six.to_s
-              #   @expenses[unit.unit_id][0][six] << unit_expense
-              #   unit.expenses_six_months_ago = @expenses[unit.unit_id][0][six]
-              #
-              # elsif month_posted == five.to_s
-              #   @expenses[unit.unit_id][0][five] << unit_expense
-              #   unit.expenses_five_months_ago = @expenses[unit.unit_id][0][five]
-              #
-              # elsif month_posted == four.to_s
-              #   @expenses[unit.unit_id][0][four] << unit_expense
-              #   unit.expenses_four_months_ago = @expenses[unit.unit_id][0][four]
-              #
-              # elsif month_posted == three.to_s
-              #   @expenses[unit.unit_id][0][three] << unit_expense
-              #   unit.expenses_three_months_ago = @expenses[unit.unit_id][0][three]
-              #
-              # elsif month_posted == two.to_s
-              #   @expenses[unit.unit_id][0][two] << unit_expense
-              #   unit.expenses_two_months_ago = @expenses[unit.unit_id][0][two]
-              #
-              # elsif month_posted == one.to_s
-              #   @expenses[unit.unit_id][0][one] << unit_expense
-              #   unit.expenses_one_months_ago = @expenses[unit.unit_id][0][one]
-              #
-              # else
-              #   @expenses[unit.unit_id][0]["different"] << unit_expense
-              # end
-              # end of the month_posted if
-
-            # end
-            # end of the unit_expense if
-
-          # end
-          # end of the unit_expenses do
-
         end
-        # end of the unit.lease_end 6 months if
-
       end
-      # end of the unit.lease_end / lease_start nil if
-      # binding.pry
-      # unit.expenses_six_months_ago = @expenses[unit.unit_id]["#{6.months.ago.month.to_s}"]
-
-
     end
     # end of the @units.each do
 
