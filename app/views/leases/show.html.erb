@@ -53,14 +53,14 @@
   }
 
   .sidenav {
-    margin-top: 150px;
-    height: 80%;
+    height: 100%;
     width: 150px;
     position: fixed;
     top: 0;
     left: 0;
     background-color: #4C4C4C;
     padding-top: 20px;
+    margin-top: 150px;
   }
 
   .sidenav a {
@@ -71,8 +71,13 @@
     display: block;
   }
 
-  .sidenav a:hover {
+  /* .sidenav a:hover {
     color: #f85323;
+  } */
+
+  .sidenav a:hover {
+    background-color: #f85323;
+    color: white;
   }
 
   .unit-info-table {
@@ -117,19 +122,17 @@
   .expense-reservation-box {
     float: left;
     margin-right: 10px;
-    margin-left: 20px;
-    border: 2px solid #4C4C4C;
-    border-radius: 25%;
+    margin-left: 10px;
     width: 60%;
   }
 
   footer {
-    height: 50px;
+    height: 40px;
     width: 100%;
     color: white;
     background-color: #54748C;
-    position: absolute;
     bottom: 0;
+    position: absolute;
   }
 
   footer p {
@@ -159,10 +162,12 @@
     </header>
 
     <div class="sidenav">
-      <a href="home">Home</a>
-      <a href="leases">Leases</a>
-      <a href="expenses">Expenses</a>
-      <a href="tracker">Overage Tracker</a>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#news">Leases</a></li>
+        <li><a href="#contact">Expenses</a></li>
+        <li><a href="#about">Overage Tracker</a></li>
+      </ul>
     </div>
 
     <p>NOTICE: This unit has had <%= rand(0..4)%> expense overage(s) in the past 6 months.</p>
@@ -264,9 +269,9 @@
 
     </div>
 
-    <footer>
+    <!-- <footer>
       <p>This Page Brought To You By Nicholas and Kelly</p>
-    </footer>
+    </footer> -->
 
 
   </body>
