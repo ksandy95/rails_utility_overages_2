@@ -101,12 +101,12 @@
             <td><b><%= link_to "#{unit.unit_id}", "/leases/#{unit.unit_id}", {:style=>'color:#456175; text-decoration: none;'} %></b></td>
             <td><%= unit.lease_start%></td>
             <td><%= unit.lease_end%></td>
-            <td><%= rand(0..100.00).round(2)%></td>
-            <td><%= rand(0..100.00).round(2)%></td>
-            <td><%= rand(0..100.00).round(2)%></td>
-            <td><%= rand(0..100.00).round(2)%></td>
-            <td><%= rand(0..100.00).round(2)%></td>
-            <td><%= rand(0..100.00).round(2)%></td>
+            <td>$<%= rand(0..100.00).round(2)%></td>
+            <td>$<%= rand(0..100.00).round(2)%></td>
+            <td>$<%= rand(0..100.00).round(2)%></td>
+            <td>$<%= rand(0..100.00).round(2)%></td>
+            <td>$<%= rand(0..100.00).round(2)%></td>
+            <td>$<%= rand(0..100.00).round(2)%></td>
           </tr>
         <% end %>
       </table>
