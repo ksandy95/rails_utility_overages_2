@@ -95,7 +95,7 @@
         </tr>
         <% @leases.each do |lease| %>
           <tr>
-            <td><b><%= link_to "#{unit.unit_id}", "/leases/#{unit.unit_id}", {:style=>'color:#456175; text-decoration: none;'} %></b></td>
+            <td><b><%= link_to "#{lease.unit_id}", "/leases/#{lease.unit_id}", {:style=>'color:#456175; text-decoration: none;'} %></b></td>
             <td><%= lease.lease_start%></td>
             <td><%= lease.lease_end%></td>
             <td><%= lease.bedrooms%></td>
