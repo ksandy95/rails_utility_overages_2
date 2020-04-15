@@ -7,19 +7,18 @@ class WelcomeController < ApplicationController
   def show
     @units = Lease.select('unit_id', 'lease_end', 'lease_start').limit(2000)
     @new_units = []
-    @expenses = {}
-    @array_of_last_6_months = [6.months.ago.month.to_s, 5.months.ago.month.to_s, 4.months.ago.month.to_s, 3.months.ago.month.to_s, 2.months.ago.month.to_s, 1.months.ago.month.to_s]
+    # @expenses = {}
+    # @array_of_last_6_months = [6.months.ago.month.to_s, 5.months.ago.month.to_s, 4.months.ago.month.to_s, 3.months.ago.month.to_s, 2.months.ago.month.to_s, 1.months.ago.month.to_s]
 
     @units.each do |unit|
       if unit.lease_end != nil && unit.lease_start != nil
         if unit.lease_end > 6.months.ago
           @new_units << unit
 
-          unit_expenses = Expense.select('net', 'period_posted', 'unit_id').where(unit_id: unit.unit_id)
           # i only want the expenses from year 2019 and 2020. the above gives me all unit expenses from all years.
           # what i really want are only expenses from the past 6 months
 
-          @expenses[unit.unit_id] = ["01" => [], "02" => [], "03" => [], "04" => [], "05" => [], "06" => [], "07" => [], "08" => [], "09" => [], "10" => [], "11" => [], "12" => [], "different" => []]
+          # @expenses[unit.unit_id] = ["01" => [], "02" => [], "03" => [], "04" => [], "05" => [], "06" => [], "07" => [], "08" => [], "09" => [], "10" => [], "11" => [], "12" => [], "different" => []]
           # can i change the values from 01..12 to only the array_of_last_6_months[0], array_of_last_6_months[1], etc...?
 
           # unit_expenses.map do |unit_expense|
