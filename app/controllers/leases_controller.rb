@@ -1,7 +1,14 @@
 class LeasesController < ApplicationController
 
   def index
+    @all_leases = Lease.all
+    @leases = []
 
+    @all_leases.each do |lease|
+      if lease.lease_end != nil && lease.lease_start != nil
+        @leases << lease
+      end
+    end
   end
 
   def show
